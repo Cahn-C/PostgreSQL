@@ -109,3 +109,27 @@ select * from employees;
 select * from shops;
 select * from locations;
 select * from suppliers;
+
+
+-- Get all records of emplyees that make more than 50k
+select * from employees where salary > 50000;
+
+
+-- Get all emplyees that work for Common Grunds coffee shop
+select * from employees where coffeeshop_id = 1;
+
+
+-- Get all emplyees that work for Common Grunds coffee shop and make more than 50k
+select * from employees where coffeeshop_id = 1 and salary > 50000;
+
+
+-- Get all emplyees that work for Common Grunds coffee shop or make more than 50k
+select * from employees where coffeeshop_id = 1 or salary > 50000;
+
+
+-- Get all emplyees that work for Common Grunds, make more than 50k and are Males
+select * from employees where coffeeshop_id = 1 and salary > 50000 and gender = 'M';
+
+
+-- Get all suppliers that are from Beans and Barley
+select * from suppliers where supplier_name = 'Beans and Barley';
