@@ -1,3 +1,6 @@
+=================================================================================================================================
+										DDL
+=================================================================================================================================
 -- Create and Alter the tables along with giving them the proper data types
 CREATE TABLE employees (
 	employee_id INT PRIMARY KEY,
@@ -35,7 +38,9 @@ CREATE TABLE suppliers (
 ALTER TABLE employees ADD FOREIGN KEY (coffeeshop_id) REFERENCES shops (coffeeshop_id) ON DELETE SET NULL;
 ALTER TABLE shops ADD FOREIGN KEY (city_id) REFERENCES locations (city_id) ON DELETE SET NULL;
 
-
+=================================================================================================================================
+										DML
+=================================================================================================================================
 
 -- Add records into the tables
 -- Employees Table
@@ -96,7 +101,9 @@ UPDATE shops SET city_id = 1 WHERE coffeeshop_id in (1, 4);
 UPDATE shops SET city_id = 2 WHERE coffeeshop_id in (2, 5);
 UPDATE shops SET city_id = 3 WHERE coffeeshop_id in (3);
 
-
+=================================================================================================================================
+										DQL/DRL
+=================================================================================================================================
 
 select * from employees;
 select * from shops;
