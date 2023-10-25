@@ -133,3 +133,86 @@ select * from employees where coffeeshop_id = 1 and salary > 50000 and gender = 
 
 -- Get all suppliers that are from Beans and Barley
 select * from suppliers where supplier_name = 'Beans and Barley';
+
+
+-- Get all records of emplyees that make more than 50k
+select * from employees where salary > 50000;
+
+
+-- Get all emplyees that work for Common Grunds coffee shop
+select * from employees where coffeeshop_id = 1;
+
+
+-- Get all emplyees that work for Common Grunds coffee shop and make more than 50k
+select * from employees where coffeeshop_id = 1 and salary > 50000;
+
+
+-- Get all emplyees that work for Common Grunds coffee shop or make more than 50k
+select * from employees where coffeeshop_id = 1 or salary > 50000;
+
+
+-- Get all emplyees that work for Common Grunds, make more than 50k and are Males
+select * from employees where coffeeshop_id = 1 and salary > 50000 and gender = 'M';
+
+
+-- Get all suppliers that are with Beans and Barley
+select * from suppliers where supplier_name = 'Beans and Barley';
+
+
+-- Get all records of suppliers that are not with Beans and Barley
+select * from suppliers where supplier_name <> 'Beans and Barley';
+
+
+-- Get all suppliers with Robusta and Arabica coffee types
+select * from suppliers where coffee_type in ('Robusta', 'Arabica');
+
+
+-- Get all suppliers that do not have Robusta and Arabica coffee types
+select * from suppliers where coffee_type not in ('Robusta', 'Arabica');
+
+
+-- Get all employees that do not have a email address
+select * from employees where email is null;
+
+
+-- Get all employees that have a email address
+select * from employees where email is not null;
+
+
+-- Get all employees that have a salary between 35k and 50k
+select * from employees where salary between 35000 and 50000;
+
+
+-- Order by salary ascending
+select * from employees order by salary asc;
+
+
+-- Order by salary descending
+select * from employees order by salary desc;
+
+
+-- Get the top 10 highest paid employees
+select * from employees order by salary desc limit 10;
+
+
+-- Return all unique coffee shop ids
+select distinct coffeeshop_id from employees;
+
+
+-- Return all unique countries
+select distinct country from locations;
+
+
+-- Extract 
+select extract(year from hire_date) as year,
+	   extract(month from hire_date) as month,
+	   extract(day from hire_date) as day
+from employees;
+
+
+-- Uppercase the first and last names of the emplyees
+select first_name,
+	   upper(first_name) as employee_first_name,
+	   last_name,
+	   upper(last_name) as employee_last_name
+from employees;
