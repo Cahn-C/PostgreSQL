@@ -211,8 +211,8 @@ from employees;
 
 
 -- Uppercase the first and last names of the emplyees
-select first_name,
-	   upper(first_name) as employee_first_name,
-	   last_name,
-	   upper(last_name) as employee_last_name
+select upper(first_name) as employee_first_name,
+	   first_name,
+	   upper(last_name) as employee_last_name,
+	   last_name
 from employees;
