@@ -266,3 +266,10 @@ from employees;
 select first_name || ' ' || last_name as full_name,
 	   (email like '%.com') as valid_email
 from employees;
+
+
+-- If email has '.gov', return true, else false
+select first_name || ' ' || last_name as full_name,
+	   (email like '%.gov') as government_email,
+	   email
+from employees;
