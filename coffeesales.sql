@@ -372,3 +372,12 @@ select count(*) as number_of_employees,
 from employees
 group by coffeeshop_id
 having number_of_employees > 200;
+
+
+-- Return only coffeeshops with a minimum salary of less than 10k
+select min(salary) as minimum_salary,
+	   coffeeshop_id
+from employees
+group by coffeeshop_id
+having min(salary) > 10000
+order by minimum_salary desc;
