@@ -239,3 +239,30 @@ select length('           Hello         ') as hello_with_spaces,
 
 
 
+-- Combine the first name and last name to create a full name
+select first_name || ' ' || last_name as full_name 
+from employees;
+
+
+-- Create a sentence that invovles the first and last name along with how much they make a year 
+select first_name || ' ' || last_name || ' makes ' || salary || ' per year.' 
+from employees;
+
+
+-- Boolean Expressions
+-- If an employee makes less than 50k, then true, else false
+select first_name || ' ' || last_name as full_name,
+	   (salary > 50000) as less_than_50k
+from employees;
+
+
+-- If the employee is a female and makes less than 50k, then true, else false
+select first_name || ' ' || last_name as full_name,
+	   (salary > 50000 and gender = 'F') as less_than_50k_female
+from employees;
+
+
+-- If email has '.com', return true, else false
+select first_name || ' ' || last_name as full_name,
+	   (email like '%.com') as valid_email
+from employees;
