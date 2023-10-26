@@ -297,3 +297,44 @@ from employees;
 select coalesce(email, 'No email') as missing_email,
 	   email
 from employees;
+
+
+-- Get the least salary per year
+select min(salary) as minimum_salary
+from employees;
+
+
+-- Get the max salary per year
+select max(salary) as maximum_salary
+from employees;
+
+
+-- Find the difference between the maximum salary and the minimum salary
+select max(salary) - min(salary) as salary_difference 
+from employees;
+
+
+-- Find the average salary
+select avg(salary) as average_salary 
+from employees;
+
+
+-- Round the average salary to the nearest integer
+select round(avg(salary), 0) as average_salary
+from employees;
+
+
+-- Get the total amount of salaries
+select sum(salary) as total_salary 
+from employees;
+
+
+-- Get the number of entries
+select count(*) as number_of_entries 
+from employees;
+
+select count(salary) as number_of_salaries 
+from employees;
+
+select count(email) as number_of_emails 
+from employees;
