@@ -216,3 +216,26 @@ select upper(first_name) as employee_first_name,
 	   upper(last_name) as employee_last_name,
 	   last_name
 from employees;
+
+
+-- Lowercase first and last name
+select lower(first_name) as employee_first_name,
+	   first_name,
+	   lower(last_name) as employee_last_name,
+	   last_name
+from employees;
+
+
+-- Return the lengths of the email
+select length(email) as email_length,
+	   email
+from employees;
+
+
+-- Trim 
+select length('           Hello         ') as hello_with_spaces,
+	   length('Hello') as hello_without_spaces,
+	   length(trim('           Hello         ')) as hello_with_trim;
+
+
+
