@@ -273,3 +273,27 @@ select first_name || ' ' || last_name as full_name,
 	   (email like '%.gov') as government_email,
 	   email
 from employees;
+
+
+-- Get the email from the 5th character
+select substring(email, 5) as fifth_char,
+	   email
+from employees;
+
+
+-- Find the posistion of the '@' symbol in the email
+select position('@' in email) as email_position,
+	  email
+from employees;
+
+
+-- Extract the email name only from the email, so everything after the '@' symbol
+select substring(email, position('@' in email) + 1) as email_name,
+	   email
+from employees;
+
+
+-- Fill in missing emails with a text of your choosing
+select coalesce(email, 'No email') as missing_email,
+	   email
+from employees;
