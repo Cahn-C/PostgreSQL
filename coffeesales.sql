@@ -338,3 +338,37 @@ from employees;
 
 select count(email) as number_of_emails 
 from employees;
+
+
+-- Get the number of employees for each coffeeshop
+select count(*) as number_of_employees,
+	   coffeeshop_id
+from employees
+group by coffeeshop_id;
+
+
+-- Get the total salaries for each coffeeshop
+select sum(salary) as total_salary,
+	   coffeeshop_id
+from employees
+group by coffeeshop_id;
+
+
+-- Get the number of employees, the average, minimum and total salaries for each coffeeshop
+select coffeeshop_id,
+	   count(*) as number_of_employees
+	   sum(salary) as total_salary,
+	   round(avg(salary), 2) as average_salary,
+	   min(salary) as minimum_salary,
+	   max(salary) as maximum_salary
+from employees
+group by coffeeshop_id
+order by number_of_employees desc;
+
+
+-- Return only the coffeeshops that have more than 200 employees
+select count(*) as number_of_employees,
+	   coffeeshop_id
+from employees
+group by coffeeshop_id
+having number_of_employees > 200;
