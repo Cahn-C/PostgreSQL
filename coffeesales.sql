@@ -381,3 +381,49 @@ from employees
 group by coffeeshop_id
 having min(salary) > 10000
 order by minimum_salary desc;
+
+
+-- If pay is less than 50k, then low pay, otherwise high pay
+select employee_id,
+	   first_name,
+	   last_name,
+	   email,
+	   salary,
+	   case when salary < 50000 then 'Low Pay' else 'High Pay' end as pay_status
+from employees
+order by salary desc;
+
+
+/* 
+   If pay is less than 20k, then low pay, if between 20k-50k inclusive, then medium pay, if over 50k, 
+   then high pay
+*/
+select employee_id,
+	   first_name,
+	   last_name,
+	   coalesce(email, 'No Email Provided'),
+	   salary,
+	   case when salary < 20000 then 'Low Pay'
+	   		when salary between 20000 and 50000 then 'Medium Pay'
+	   		else 'High Pay' 
+	   end as pay_status
+from employees
+order by salary desc;
+
+
+-- Return the number of employees from each pay category
+select a.pay_status,
+	   count(*) as number_of_employees
+from (
+	select employee_id,
+	   	   first_name,
+	       last_name,
+	   	   coalesce(email, 'No Email Provided'),
+	   	   salary,
+	   	   case when salary < 20000 then 'Low Pay'
+		   		when salary between 20000 and 50000 then 'Medium Pay'
+	   			else 'High Pay' 
+	   	   end as pay_status
+	from employees
+) a
+group by a.pay_status;
