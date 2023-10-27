@@ -427,3 +427,10 @@ from (
 	from employees
 ) a
 group by a.pay_status;
+
+
+-- Transpose Data
+select to_char(sum(case when salary < 20000 then 1 else 0 end), '$999,999,999.99') as low_pay,
+	   to_char(sum(case when salary between 20000 and 50000 then 1 else 0 end), '$999,999,999.99') as medium_pay,
+	   to_char(sum(case when salary >= 50000 then 1 else 0 end), '$999,999,999.99') as high_pay
+from employees;
