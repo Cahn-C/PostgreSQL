@@ -62,12 +62,13 @@ INSERT INTO shops VALUES (2, 'Early Rise', NULL);
 INSERT INTO shops VALUES (3, 'Ancient Bean', NULL);
 INSERT INTO shops VALUES (4, 'Urban Grind', NULL);
 INSERT INTO shops VALUES (5, 'Trembling Cup', NULL);
-
+INSERT INTO shops VALUES (6, 'Happy Brew', NULL);
 
 -- Locations Table
 INSERT INTO locations VALUES (1, 'Los Angeles', 'United States');
 INSERT INTO locations VALUES (2, 'New York', 'United States');
 INSERT INTO locations VALUES (3, 'London', 'United Kingdom');
+INSERT INTO locations VALUES (4, 'Paris', 'France');
 
 
 -- Suppliers Table
