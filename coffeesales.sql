@@ -489,3 +489,61 @@ select country from locations;
 select country from locations
 union all
 select country from locations;
+
+
+-- Basic subqueries
+select * 
+from (select * from employees where coffeeshop_id in (3, 4)) a;
+
+select a.employee_id, 
+	   a.first_name, 
+	   a.last_name, 
+	   a.coffeeshop_id
+from (select * from employees where coffeeshop_id in (3, 4)) a;
+
+
+-- Get the maximum salry for every sinlge row
+select employee_id,
+	   first_name,
+	   last_name,
+	   (select max(salary) from employees) as maximum_salary
+from employees;
+
+
+-- Get the maximum salry for every sinlge row 
+select employee_id,
+	   first_name,
+	   last_name,
+	   (select round(avg(salary), 2) from employees) as average_salary
+from employees;
+
+
+-- Find the difference between the original salary and the average salary
+select employee_id,
+	   first_name,
+	   last_name,
+	   salary - (select round(avg(salary), 2) from employees) as difference_salary
+from employees;
+
+
+-- Return all United States coffee shops
+select * 
+from shops
+where city_id in (select city_id from locations where country = 'United States');
+
+
+-- Return all employees who work in the United States coffeeshops
+select * 
+from employees
+where coffeeshop_id in (select coffeeshop_id from shops
+					    where city_id in (select city_id from locations 
+										 where country = 'United States'));
+										 
+
+-- Return all employees who make over 35k and work in the United States
+select * 
+from employees
+where salary > 35000
+and coffeeshop_id in (select coffeeshop_id from shops
+					  where city_id in (select city_id from locations
+									    where country = 'United States'));
