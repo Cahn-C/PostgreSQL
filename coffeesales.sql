@@ -435,3 +435,57 @@ select to_char(sum(case when salary < 20000 then 1 else 0 end), '$999,999,999.99
 	   to_char(sum(case when salary between 20000 and 50000 then 1 else 0 end), '$999,999,999.99') as medium_pay,
 	   to_char(sum(case when salary >= 50000 then 1 else 0 end), '$999,999,999.99') as high_pay
 from employees;
+
+
+-- Find what cities and countries that are associated with a ceratin coffeeshop
+select s.coffeeshop_name, 
+	   l.city,
+	   l.country
+from shops s
+join locations l
+on s.city_id = l.city_id;
+
+
+-- Find all cities and countries that are associated with a ceratin coffeeshop
+select s.coffeeshop_name, 
+	   l.city,
+	   l.country
+from shops s
+left join locations l
+on s.city_id = l.city_id;
+
+
+-- Find what cities and countries that are associated with all coffeeshops
+select s.coffeeshop_name, 
+	   l.city,
+	   l.country
+from shops s
+right join locations l
+on s.city_id = l.city_id;
+
+
+-- Find all cities and countries that are associated with all coffeeshops
+select s.coffeeshop_name, 
+	   l.city,
+	   l.country
+from shops s
+full join locations l
+on s.city_id = l.city_id;
+
+
+-- Get all cities and countries
+select city from locations
+union
+select country from locations;
+
+
+-- Remove any duplicates from certain countries
+select country from locations
+union
+select country from locations;
+
+
+-- Get all countries
+select country from locations
+union all
+select country from locations;
