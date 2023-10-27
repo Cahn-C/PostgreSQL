@@ -547,3 +547,14 @@ where salary > 35000
 and coffeeshop_id in (select coffeeshop_id from shops
 					  where city_id in (select city_id from locations
 									    where country = 'United States'));
+
+
+
+-- 30 day moving total pay
+select employee_id,
+	   first_name,
+	   last_name,
+	   hire_date,
+	   (select sum(salary) from employees e2 
+		where e2.hire_date between e1.hire_date - 30 and e1.hire_date) as pay_pattern
+from employees e1
