@@ -206,37 +206,37 @@ select distinct country from locations;
 
 -- Extract 
 select extract(year from hire_date) as year,
-	   extract(month from hire_date) as month,
-	   extract(day from hire_date) as day
+       extract(month from hire_date) as month,
+       extract(day from hire_date) as day
 from employees;
 
 
 -- Uppercase the first and last names of the emplyees
 select upper(first_name) as employee_first_name,
-	   first_name,
-	   upper(last_name) as employee_last_name,
-	   last_name
+       first_name,
+       upper(last_name) as employee_last_name,
+       last_name
 from employees;
 
 
 -- Lowercase first and last name
 select lower(first_name) as employee_first_name,
-	   first_name,
-	   lower(last_name) as employee_last_name,
-	   last_name
+       first_name,
+       lower(last_name) as employee_last_name,
+       last_name
 from employees;
 
 
 -- Return the lengths of the email
 select length(email) as email_length,
-	   email
+       email
 from employees;
 
 
 -- Trim 
 select length('           Hello         ') as hello_with_spaces,
-	   length('Hello') as hello_without_spaces,
-	   length(trim('           Hello         ')) as hello_with_trim;
+       length('Hello') as hello_without_spaces,
+       length(trim('           Hello         ')) as hello_with_trim;
 
 
 
@@ -253,32 +253,32 @@ from employees;
 -- Boolean Expressions
 -- If an employee makes less than 50k, then true, else false
 select first_name || ' ' || last_name as full_name,
-	   (salary > 50000) as less_than_50k
+       (salary > 50000) as less_than_50k
 from employees;
 
 
 -- If the employee is a female and makes less than 50k, then true, else false
 select first_name || ' ' || last_name as full_name,
-	   (salary > 50000 and gender = 'F') as less_than_50k_female
+       (salary > 50000 and gender = 'F') as less_than_50k_female
 from employees;
 
 
 -- If email has '.com', return true, else false
 select first_name || ' ' || last_name as full_name,
-	   (email like '%.com') as valid_email
+       (email like '%.com') as valid_email
 from employees;
 
 
 -- If email has '.gov', return true, else false
 select first_name || ' ' || last_name as full_name,
-	   (email like '%.gov') as government_email,
-	   email
+       (email like '%.gov') as government_email,
+       email
 from employees;
 
 
 -- Get the email from the 5th character
 select substring(email, 5) as fifth_char,
-	   email
+       email
 from employees;
 
 
