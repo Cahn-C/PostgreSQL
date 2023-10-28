@@ -284,19 +284,19 @@ from employees;
 
 -- Find the posistion of the '@' symbol in the email
 select position('@' in email) as email_position,
-	  email
+       email
 from employees;
 
 
 -- Extract the email name only from the email, so everything after the '@' symbol
 select substring(email, position('@' in email) + 1) as email_name,
-	   email
+       email
 from employees;
 
 
 -- Fill in missing emails with a text of your choosing
 select coalesce(email, 'No email') as missing_email,
-	   email
+       email
 from employees;
 
 
@@ -343,14 +343,14 @@ from employees;
 
 -- Get the number of employees for each coffeeshop
 select count(*) as number_of_employees,
-	   coffeeshop_id
+       coffeeshop_id
 from employees
 group by coffeeshop_id;
 
 
 -- Get the total salaries for each coffeeshop
 select sum(salary) as total_salary,
-	   coffeeshop_id
+       coffeeshop_id
 from employees
 group by coffeeshop_id;
 
