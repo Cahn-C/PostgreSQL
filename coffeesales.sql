@@ -357,11 +357,11 @@ group by coffeeshop_id;
 
 -- Get the number of employees, the average, minimum and total salaries for each coffeeshop
 select coffeeshop_id,
-	   count(*) as number_of_employees
-	   sum(salary) as total_salary,
-	   round(avg(salary), 2) as average_salary,
-	   min(salary) as minimum_salary,
-	   max(salary) as maximum_salary
+       count(*) as number_of_employees
+       sum(salary) as total_salary,
+       round(avg(salary), 2) as average_salary,
+       min(salary) as minimum_salary,
+       max(salary) as maximum_salary
 from employees
 group by coffeeshop_id
 order by number_of_employees desc;
@@ -369,7 +369,7 @@ order by number_of_employees desc;
 
 -- Return only the coffeeshops that have more than 200 employees
 select count(*) as number_of_employees,
-	   coffeeshop_id
+       coffeeshop_id
 from employees
 group by coffeeshop_id
 having number_of_employees > 200;
@@ -377,7 +377,7 @@ having number_of_employees > 200;
 
 -- Return only coffeeshops with a minimum salary of less than 10k
 select min(salary) as minimum_salary,
-	   coffeeshop_id
+       coffeeshop_id
 from employees
 group by coffeeshop_id
 having min(salary) > 10000
@@ -386,11 +386,11 @@ order by minimum_salary desc;
 
 -- If pay is less than 50k, then low pay, otherwise high pay
 select employee_id,
-	   first_name,
-	   last_name,
-	   email,
-	   salary,
-	   case when salary < 50000 then 'Low Pay' else 'High Pay' end as pay_status
+       first_name,
+       last_name,
+       email,
+       salary,
+       case when salary < 50000 then 'Low Pay' else 'High Pay' end as pay_status
 from employees
 order by salary desc;
 
@@ -400,31 +400,31 @@ order by salary desc;
    then high pay
 */
 select employee_id,
-	   first_name,
-	   last_name,
-	   coalesce(email, 'No Email Provided'),
-	   salary,
-	   case when salary < 20000 then 'Low Pay'
-	   		when salary between 20000 and 50000 then 'Medium Pay'
-	   		else 'High Pay' 
-	   end as pay_status
+       first_name,
+       last_name,
+       coalesce(email, 'No Email Provided'),
+       salary,
+       case when salary < 20000 then 'Low Pay'
+       	    when salary between 20000 and 50000 then 'Medium Pay'
+	    else 'High Pay' 
+       end as pay_status
 from employees
 order by salary desc;
 
 
 -- Return the number of employees from each pay category
 select a.pay_status,
-	   count(*) as number_of_employees
+       count(*) as number_of_employees
 from (
 	select employee_id,
-	   	   first_name,
+               first_name,
 	       last_name,
-	   	   coalesce(email, 'No Email Provided'),
-	   	   salary,
-	   	   case when salary < 20000 then 'Low Pay'
-		   		when salary between 20000 and 50000 then 'Medium Pay'
-	   			else 'High Pay' 
-	   	   end as pay_status
+	       coalesce(email, 'No Email Provided'),
+	       salary,
+	       case when salary < 20000 then 'Low Pay'
+		    when salary between 20000 and 50000 then 'Medium Pay'
+	   	    else 'High Pay' 
+	       end as pay_status
 	from employees
 ) a
 group by a.pay_status;
