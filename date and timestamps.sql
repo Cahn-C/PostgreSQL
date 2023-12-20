@@ -13,9 +13,7 @@ select count(emp_no) as number_of_employees from employees where extract(month f
 -- Get the oldest employee
 select * 
 from employees 
-where extract(year from age(birth_date)) = (
-	select max(extract(year from age(birth_date))) as age from employees
-)
+where extract(year from age(birth_date)) = (select max(extract(year from age(birth_date))) as age from employees)
 order by birth_date asc; 
 
 -- Check records
