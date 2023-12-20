@@ -16,11 +16,11 @@ where customerid in (select customerid from customers where state in ('NY', 'OR'
 -- or
 
 select c.firstname, 
-	   c.lastname, 
-	   c.city, 
-	   c.state, 
-	   o.totalamount,
-	   o.orderdate
+       c.lastname, 
+       c.city, 
+       c.state, 
+       o.totalamount,
+       o.orderdate
 from orders as o 
 inner join (
 	select customerid, firstname, lastname, city, state from customers
@@ -37,11 +37,11 @@ on o.customerid = c.customerid;
 */
 -- Join
 select e.emp_no, 
-	   e.first_name, 
-	   e.last_name,
-	   dm.emp_no as manager_no,
-	   (select first_name from employees where emp_no = 110183) as manager_first_name,
-	   (select last_name from employees where emp_no = 110183) as manager_lasst_name
+       e.first_name, 
+       e.last_name,
+      dm.emp_no as manager_no,
+      (select first_name from employees where emp_no = 110183) as manager_first_name,
+      (select last_name from employees where emp_no = 110183) as manager_lasst_name
 from employees as e
 inner join dept_emp as de on e.emp_no = de.emp_no
 inner join dept_manager as dm on dm.dept_no = de.dept_no
@@ -50,12 +50,12 @@ where dm.emp_no = 110183;
 
 -- Subquery
 select (select first_name from employees where emp_no = 110183) as manager_first_name,
-	   (select last_name from employees where emp_no = 110183) as manager_lasst_name,
-	  	* 
+       (select last_name from employees where emp_no = 110183) as manager_lasst_name,
+       * 
 from employees
 where emp_no in (select emp_no from dept_emp
-				 where dept_no in (select dept_no from dept_manager
-								   where emp_no = 110183));
+	         where dept_no in (select dept_no from dept_manager
+	                           where emp_no = 110183));
 								   
 								   
 
