@@ -20,8 +20,8 @@ from products;
 * Question: Show NULL when the product is not on special (0)
 */
 select prod_id,
-	   title,
-	   price,
-	   special,
-	   nullif(special, 0) as not_on_special
+       title,
+       price,
+       special,
+       nullif(special, 0) as not_on_special
 from products;
