@@ -6,11 +6,11 @@
 * and of is lower than or equal to 10 you show 'cheap'.
 */
 select title,
-	   price,
-	   case when price > 20 then 'expensive'
-	   		when price between 10 and 20 then 'average'
-			else 'cheap'
-	   end as price_class
+       price,
+       case when price > 20 then 'expensive'
+ 	    when price between 10 and 20 then 'average'
+            else 'cheap'
+       end as price_class
 from products;
 
 
