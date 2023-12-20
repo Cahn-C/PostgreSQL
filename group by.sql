@@ -3,7 +3,10 @@
 *  Database: Employees
 *  Table: Employees
 */
-select hire_date, count(emp_no) as number_of_employees from employees group by hire_date order by 2 desc;
+select hire_date, count(emp_no) as number_of_employees 
+from employees 
+group by hire_date 
+order by 2 desc;
 
 
 /*
