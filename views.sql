@@ -16,11 +16,11 @@ select * from "90-95";
 */
 CREATE VIEW bigbucks AS 
 select e.emp_no,
-	   e.first_name,
-	   e.last_name,
-	   e.birth_date,
-	   e.hire_date,
-	   s.salary
+       e.first_name,
+       e.last_name,
+       e.birth_date,
+       e.hire_date,
+       s.salary
 from employees as e inner join salaries as s
 on s.emp_no = e.emp_no
 where s.salary > 80000;
