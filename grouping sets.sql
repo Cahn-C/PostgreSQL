@@ -22,8 +22,8 @@ order by 1 desc;
 */
 select d.dept_name, avg(s.salary) as average_salaries
 from employees as e
-inner join salaries as s  	on s.emp_no = e.emp_no
-inner join dept_emp as de 	on s.emp_no = de.emp_no
+inner join salaries as s    on s.emp_no = e.emp_no
+inner join dept_emp as de   on s.emp_no = de.emp_no
 inner join departments as d on de.dept_no = d.dept_no
 group by grouping sets (
 	d.dept_name,
